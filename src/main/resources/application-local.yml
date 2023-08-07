@@ -10,9 +10,14 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 1234
-  h2:
-    console:
-      enabled: true
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    url: jdbc:mysql://localhost:13305/boarding?useSSL=false&serverTimezone=UTC&characterEncoding=utf8
+    user: root
+    password: 1234
+
   jpa:
     hibernate:
       ddl-auto: validate
