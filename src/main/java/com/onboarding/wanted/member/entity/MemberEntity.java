@@ -12,17 +12,31 @@ import javax.persistence.*;
 @Entity
 @Table(name = "member")
 public class MemberEntity {
-    @Getter(AccessLevel.NONE)
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long memberId;
     private String email;
     private String password;
 
+    @Enumerated(EnumType.STRING)
+    private MemberRoleEntity role;
+
+    private String refreshToken;
+
     @Builder
-    public MemberEntity(Long memberId, String email, String password) {
+    public MemberEntity(Long memberId, String email, String password, MemberRoleEntity role, String refreshToken) {
         this.memberId = memberId;
         this.email = email;
         this.password = password;
+        this.role = role;
+        this.refreshToken = refreshToken;
+    }
+
+    public void changedPassword(String password) {
+        this.password = password;
+    }
+
+    public void updateRefreshToken(String newToken) {
+        this.refreshToken = newToken;
     }
 }

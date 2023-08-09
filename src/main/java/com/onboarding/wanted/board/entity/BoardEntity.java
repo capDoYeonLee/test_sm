@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 @Table(name = "board")
 public class BoardEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long boardId;
     private Long writerId;
     private String title;
