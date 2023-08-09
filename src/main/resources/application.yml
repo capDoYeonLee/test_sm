@@ -1,3 +1,37 @@
 spring:
   profiles:
     active: local
+  datasource:
+    url: jdbc:mysql://localhost:13305/boarding?allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=utf8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 1234
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    url: jdbc:mysql://localhost:13305/boarding?useSSL=false&serverTimezone=UTC&characterEncoding=utf8
+    user: root
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+      default_batch_fetch_size: 100
+    open-in-view: false
+
+server:
+  servlet:
+    encoding:
+      charset: utf-8
+      force: true
+  port: 8080
+
+
+jwt:
+  secret:
+    key: wantedsecret
