@@ -15,6 +15,6 @@ ARG RELEASE_VERSION
 ENV DD_VERSION=${RELEASE_VERSION}
 
 ARG JAR_FILE="build/libs/*.jar"
-COPY ${JAR_FILE} app.jar
+COPY ./build/libs/*.jar app.jar
 
 ENTRYPOINT java -XX:MaxGCPauseMillis=100 -XX:InitialRAMPercentage=50.0 -XX:MaxRAMPercentage=80.0 -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:9000 $JAVA_OPTS -jar app.jar

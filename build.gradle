@@ -48,4 +48,6 @@ bootJar{
     archivesBaseName = 'wanted'
     archiveFileName = 'wanted.jar'
     archiveVersion = "0.0.1"
+
 }
+jar { enabled = false }
